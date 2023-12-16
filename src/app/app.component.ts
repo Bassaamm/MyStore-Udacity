@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { ProductsComponent } from './products/products.component';
-import { HeaderComponent } from './layout/header/header.component';
+import { ProductsComponent } from './page/products/products.component';
+import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductComponent } from './components/product/product.component';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     RouterOutlet,
     ProductsComponent,
+    ProductComponent,
     HeaderComponent,
     HttpClientModule,
   ],
