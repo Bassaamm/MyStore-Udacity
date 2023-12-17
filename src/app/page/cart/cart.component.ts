@@ -1,16 +1,17 @@
 import { Router } from '@angular/router';
-import { Product } from '../../types/Product';
 import { CartService } from '../../services/cart.service';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartItem } from '../../types/CartItem';
+import { CartItemComponent } from '../../components/cart-item/cart-item.component';
+import { FormComponent } from '../../components/form/form.component';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
+  imports: [CommonModule, CartItemComponent, FormComponent],
 })
 export class CartComponent {
   cartList: CartItem[] = [];
@@ -21,14 +22,14 @@ export class CartComponent {
     this.cartList = this.CartService.getCart();
   }
 
-  incresQuan(item: CartItem) {
+  handleIncresQuan(item: CartItem) {
     if (item.quantity < 5) {
       item.quantity!++;
       console.log(this.cartList);
     } else alert("You can't add more than 5");
     this.CartService.updateCart(this.cartList);
   }
-  decresQuan(item: CartItem) {
+  handleDecresQuan(item: CartItem) {
     if (item.quantity! > 1) {
       item.quantity!--;
       this.CartService.updateCart(this.cartList);
@@ -39,7 +40,10 @@ export class CartComponent {
       this.CartService.updateCart(this.cartList);
     }
   }
-  navToCheckout() {
+  navToCheckout(): void {
     this.router.navigate(['conformation']);
+  }
+  getTotalPrice(): number {
+    return this.CartService.getTotalPrice();
   }
 }

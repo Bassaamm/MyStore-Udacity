@@ -1,0 +1,51 @@
+<form
+  #form="ngForm"
+  (ngSubmit)="navToConformtion()"
+  class="flex text-xl flex-col gap-4"
+>
+  <div>
+    <label for="fullname">Full Name</label>
+    <br />
+    <input
+      class="my-3 font-bold placeholder:font-normal px-3 py-2 rounded-lg"
+      name="fullname"
+      type="text"
+      [(ngModel)]="fullName"
+      placeholder="example: Bassam Q"
+      required
+    />
+  </div>
+  <div>
+    <label for="address">Address</label>
+    <br />
+    <input
+      class="my-3 font-bold placeholder:font-normal px-3 py-2 rounded-lg"
+      name="address"
+      type="text"
+      [(ngModel)]="address"
+      required
+      placeholder="required"
+    />
+  </div>
+  <div>
+    <label for="creditcard">CreditCard number</label>
+    <br />
+    <input
+      class="my-3 font-bold placeholder:font-normal px-3 py-2 rounded-lg"
+      placeholder="should be from 20 number"
+      name="creditcard"
+      [(ngModel)]="creditCard"
+      pattern="\d*"
+      maxlength="20"
+      minlength="20"
+      required
+    />
+  </div>
+  <button
+    type="submit"
+    class="px-4 py-2 bg-slate-800 hover:bg-slate-200 hover:text-slate-900 text-white rounded-xl"
+    [disabled]="form.invalid"
+  >
+    Submit Order
+  </button>
+</form>

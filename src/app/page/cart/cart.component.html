@@ -1,39 +1,18 @@
-<div class="flex flex-col w-full gap-6 my-10 items-center justify-center">
-  <ul
-    *ngFor="let item of cartList"
-    class="flex bg-slate-200 px-8 py-5 rounded-xl container gap-4 max-w-3xl"
-  >
-    <img
-      src="{{ item.product.url }}"
-      alt="item photo"
-      class="w-60 h-60 object-cover rounded-xl"
-    />
-    <div class="flex text-2xl font-bold gap-6 flex-col">
-      <li>name: {{ item.product.name }}</li>
-      <li>price: {{ item.product.price }} $</li>
-      <li>description: {{ item.product.description }}</li>
-      <li>
-        <div>
-          <ul class="flex items-center">
-            <li class="flex-1">quantity: {{ item.quantity }}</li>
-            <div class="flex gap-5">
-              <button
-                (click)="incresQuan(item)"
-                class="bg-slate-700 rounded-full w-12 h-12"
-              >
-                +
-              </button>
-              <button
-                (click)="decresQuan(item)"
-                class="bg-slate-700 rounded-full w-12 h-12"
-              >
-                -
-              </button>
-            </div>
-          </ul>
-        </div>
-      </li>
-    </div>
-    <li></li>
-  </ul>
+<div class="flex max-full my-10 gap-8 items-center justify-center">
+  <div class="flex flex-col gap-8">
+    <app-cart-item
+      *ngFor="let item of cartList"
+      [item]="item"
+      (IncresItem)="handleIncresQuan($event)"
+      (DecresItem)="handleDecresQuan($event)"
+    ></app-cart-item>
+  </div>
+  <div class="flex gap-4 flex-col">
+    <p class="text-2xl" *ngIf="cartList.length != 0">
+      <span class="text-4xl font-bold">Total Price: </span
+      >{{ getTotalPrice() }}$
+    </p>
+    <app-form *ngIf="cartList.length != 0; else empty"></app-form>
+  </div>
+  <ng-template #empty><p class="text-4xl">The cart is empty</p></ng-template>
 </div>

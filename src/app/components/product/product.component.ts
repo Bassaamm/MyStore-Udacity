@@ -22,8 +22,9 @@ export class ProductComponent {
 
   constructor(private router: Router) {
     this.selectedQuantity = 1;
+    //@ts-ignore
     this.product = {
-      id: null ?? 0,
+      id: 0,
       name: '',
       description: '',
       price: 0,
@@ -39,6 +40,6 @@ export class ProductComponent {
     });
   }
   navToProduct() {
-    this.router.navigate(['product/:id']);
+    this.router.navigate(['product', this.product.id]);
   }
 }

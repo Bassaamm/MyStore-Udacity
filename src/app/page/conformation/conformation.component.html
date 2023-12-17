@@ -1,1 +1,19 @@
-<p>conformation works!</p>
+<div
+  class="flex text-2xl gap-4 flex-col mt-40 w-full justify-center items-center"
+>
+  <p class="text-green-500 text-5xl font-bold">Success ! ✅</p>
+  <p>
+    Thank you <span class="font-bold">{{ order.customer.fullName }} ❤️</span>
+  </p>
+  <p>
+    Your <span class="font-bold">{{ order.totalPrice }}$</span> order is
+    confirmed
+  </p>
+  <p>Please allow 1 - 6 business day/s for shipping</p>
+  <button
+    (click)="navToProducts()"
+    class="px-4 py-2 bg-slate-800 hover:bg-slate-200 hover:text-slate-900 text-white rounded-xl"
+  >
+    Back to the products
+  </button>
+</div>
