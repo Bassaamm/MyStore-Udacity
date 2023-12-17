@@ -6,6 +6,7 @@ import { ConformationComponent } from './page/conformation/conformation.componen
 import { ProductDetailsComponent } from './page/product-details/product-details.component';
 
 export const routes: Routes = [
+  { path: '**', redirectTo: '' },
   { path: '', component: ProductsComponent },
   {
     path: 'product/:id',

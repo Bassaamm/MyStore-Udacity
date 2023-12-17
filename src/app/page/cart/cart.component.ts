@@ -38,6 +38,7 @@ export class CartComponent {
         (cartItem) => cartItem.product.name != item.product.name
       );
       this.CartService.updateCart(this.cartList);
+      alert('Item was deleted');
     }
   }
   navToCheckout(): void {

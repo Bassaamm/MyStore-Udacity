@@ -11,9 +11,13 @@
       name="fullname"
       type="text"
       [(ngModel)]="fullName"
-      placeholder="example: Bassam Q"
+      (ngModelChange)="validateFullName()"
+      placeholder="example: Eren Yeager"
       required
     />
+    <div *ngIf="fullNameError" class="text-base text-red-500">
+      {{ fullNameError }}
+    </div>
   </div>
   <div>
     <label for="address">Address</label>
@@ -24,7 +28,7 @@
       type="text"
       [(ngModel)]="address"
       required
-      placeholder="required"
+      placeholder="Required"
     />
   </div>
   <div>
@@ -35,11 +39,15 @@
       placeholder="should be from 20 number"
       name="creditcard"
       [(ngModel)]="creditCard"
+      (ngModelChange)="validateCreditCard()"
       pattern="\d*"
       maxlength="20"
       minlength="20"
       required
     />
+    <div *ngIf="creditCardError" class="text-base text-red-500">
+      {{ creditCardError }}
+    </div>
   </div>
   <button
     type="submit"

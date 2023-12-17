@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Order } from '../../types/order';
+import { Order } from '../../types/Order';
 import { OrdersService } from './../../services/orders.service';
 import { Component } from '@angular/core';
 
