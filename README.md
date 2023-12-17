@@ -2,6 +2,8 @@
 
 ### Here is my solution for the project
 
+### TailwindCSS been used for styling
+
 The flow in the app goes like this :
 
 ```bash
